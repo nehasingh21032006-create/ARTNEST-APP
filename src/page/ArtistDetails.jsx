@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { mockArtists } from "../data/artista";
+import { mockArtists } from "../Data/artists";
 
 function ArtistDetails() {
   const { id } = useParams();
