@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="flex items-center gap-[26px] flex-1">
 
           <a
-            href="#"
+            href="/"
             className="text-[13px] font-semibold text-[#a65335] whitespace-nowrap"
           >
             Home
@@ -51,7 +51,7 @@ const Navbar = () => {
           </a>
 
           <a
-            href="#"
+            href="/collections"
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             Curated Collections

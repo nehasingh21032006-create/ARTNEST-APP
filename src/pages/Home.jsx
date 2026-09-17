@@ -7,9 +7,11 @@ import { FaArrowsToCircle } from "react-icons/fa6";
 import { MdTexture } from "react-icons/md";
 import { MdOutlineDraw } from "react-icons/md";
 import { MdOutlineLayers } from "react-icons/md";
-
 import { PiPaintBrushBroadFill } from "react-icons/pi";
-
+import { SlidersHorizontal } from "lucide-react";
+import ArtWorkCard from '../Components/ArtWorkCard';
+import CuratedCollections from "../Components/CuratedCollections";
+import AssuranceSection from "../Components/AssuranceSection";
 
 const mediums = [
   {
@@ -51,6 +53,60 @@ const mediums = [
     name: "Printmaking",
     works: "410 works",
     icon: PiPaintBrushBroadFill,
+  },
+];
+
+const artworks = [
+  {
+    title: "Solitude in Terracotta",
+    artist: "Elena Vance",
+    price: "$1,850",
+    medium: "Oil on Canvas",
+    size: "90 × 120 cm",
+    badge: "ORIGINAL",
+    detail: "Provenance Sealed",
+    location: "Madrid, Spain",
+    image:
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=800&q=85",
+  },
+
+  {
+    title: "Earthen Vessel No. 04",
+    artist: "Mateo Rossi",
+    price: "$480",
+    medium: "Hand-thrown Stoneware",
+    size: "34 × 22 cm",
+    badge: "1 OF 1 UNIQUE",
+    detail: "Signed by Potter",
+    location: "Bologna, Italy",
+    image:
+      "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=800&q=85",
+  },
+
+  {
+    title: "Chromatic Echoes",
+    artist: "Siobhan Chen",
+    price: "$2,400",
+    medium: "Acrylic & Gold Leaf",
+    size: "100 × 100 cm",
+    badge: "GOLD LEAF",
+    detail: "Framed in Walnut",
+    location: "Vancouver, Canada",
+    image:
+      "https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=800&q=85",
+  },
+
+  {
+    title: "Silent Horizon",
+    artist: "David Kaul",
+    price: "$950",
+    medium: "Archival Pigment Print",
+    size: "75 × 100 cm",
+    badge: "LIMITED ED. /10",
+    detail: "Hahnemühle Paper",
+    location: "Nairobi, Kenya",
+    image:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=85",
   },
 ];
 
@@ -221,6 +277,64 @@ const Home = () => {
       </div>
 
     </section>
+
+    <section className="w-full bg-[#fdf8f3] px-5 py-12 sm:px-8 md:px-10 lg:px-12 lg:py-14">
+      <div className="mx-auto max-w-[1200px]">
+
+        {/* Header */}
+        <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          
+          {/* Heading */}
+          <div>
+            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#a34f32]">
+              Curated Selections
+            </p>
+
+            <h2 className="font-serif text-[32px] leading-none tracking-[-0.02em] text-[#161616] sm:text-[36px]">
+              Featured Artworks
+            </h2>
+
+            <p className="mt-3 max-w-[440px] text-[13px] leading-5 text-[#665f59]">
+              Every piece is evaluated for archival excellence, medium
+              mastery, and distinct artistic voice.
+            </p>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              className="flex h-9 items-center gap-2 rounded-lg bg-[#f2e6da] px-3.5 text-[11px] font-medium text-[#4c4540] transition hover:bg-[#eadacd]"
+            >
+              <SlidersHorizontal size={13} strokeWidth={1.8} />
+              Filter Works
+            </button>
+
+            <button
+              type="button"
+              className="h-9 rounded-lg bg-[#a65335] px-4 text-[11px] font-semibold text-white transition hover:bg-[#91462d]"
+            >
+              View All (4,890)
+            </button>
+          </div>
+        </div>
+
+        {/* Artwork Grid */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {artworks.map((artwork) => (
+            <ArtWorkCard
+              key={artwork.title}
+              artwork={artwork}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CuratedCollections />
+
+    <AssuranceSection />
+
     </div>
   )
 }
