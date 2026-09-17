@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-/*
-  Editorial Gallery Minimal — design tokens (DESIGN.md)
-  Kept as CSS variables for reference / for any plain-CSS you still write.
-  Components in this project mostly use Tailwind arbitrary values directly
-  (e.g. bg-[#F9F8F5]), so these variables are optional to consume.
-*/
 :root {
   --color-primary: #9f5639;
   --color-primary-hover: #89482f;
