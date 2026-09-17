@@ -8,6 +8,7 @@ const Navbar = () => {
       {/* ================= NAVBAR ================= */}
       <nav className="h-[76px] w-full bg-[#fffefe] border-b border-[#eee8e3] flex items-center px-12 font-sans">
 
+
         {/* Logo — swapped from the "✦ ArtNest" text mark to the actual
             Athenura logo image, so it matches the Footer. */}
         <div className="flex items-center min-w-[185px]">
@@ -21,49 +22,63 @@ const Navbar = () => {
         <div className="flex items-center gap-[26px] flex-1">
 
           <a
+
             href="/"
+
             className="text-[13px] font-semibold text-[#a65335] whitespace-nowrap"
           >
             Home
           </a>
 
           <a
+
             href="/discover"
+
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             Discover
           </a>
 
           <a
+
             href="/artists"
+
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             Artists
           </a>
 
           <a
+
             href="/sculptures"
+
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             Sculptures
           </a>
 
           <a
+
             href="/curated-collections"
+
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             Curated Collections
           </a>
 
           <a
+
             href="/custom-art"
+
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             Custom Art
           </a>
 
           <a
+
             href="/about"
+
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             About
@@ -190,3 +205,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

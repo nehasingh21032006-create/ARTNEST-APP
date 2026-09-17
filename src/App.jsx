@@ -25,9 +25,9 @@ const App = () => {
         <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
       {!isAdminRoute && <Footer />}
+
     </div>
   )
 }
-
 
 export default App
