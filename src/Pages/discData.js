@@ -225,7 +225,7 @@ export const ARTWORKS = [
     medium: "Hand-Blown Glass",
     dims: "35 x 18 cm",
     value: 1780,
-    img: "https://images.unsplash.com/photo-1528732515498-6237514eeaa4?q=80&w=900&auto=format&fit=crop",
+    img: "https://images.unsplash.com/photo-1602526216832-b3ce07688f9c?q=80&w=900&auto=format&fit=crop",
     tag: "Hand-Blown Glass",
   },
   {
