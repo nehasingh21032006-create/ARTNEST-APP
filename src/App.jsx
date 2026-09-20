@@ -35,7 +35,7 @@ import Payments from './Pages/Admin Dashboard/Payments'
 import Reports from './Pages/Admin Dashboard/Reports'
 import Messages from './Pages/Admin Dashboard/Messages'
 import AdminSettings from './Pages/Admin Dashboard/Settings'
-import { Routes } from 'react-router-dom'
+
 
 
 
@@ -86,7 +86,7 @@ const App = () => {
                 </Route>
 
 
-        <Route path="/admin" element={<AdminDashboard />} />
+        
         <Route path="/register/artist" element={<ArtistReg />} />
         <Route path="/register/buyer" element={<BuyerReg />} />
         <Route path="/login/buyer" element={<BuyerLogin />} />
