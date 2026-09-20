@@ -329,9 +329,9 @@ const Home = () => {
               to={medium.slug ? `/discover?category=${medium.slug}` : "/discover"}
               className="
                 group
-                min-h-[15px]
+                min-h-[150px]
                 sm:min-h-[160px]
-                lg:h-[15px]
+                lg:min-h-[190px]
 
                 bg-[#f8eadc]
 

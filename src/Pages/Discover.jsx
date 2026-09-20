@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -383,10 +384,30 @@ function ArtworkDetailModal({ art, onClose }) {
 }
 
 export default function Discover() {
+  const [searchParams] = useSearchParams();
   const [query, setQuery] = useState("");
   const [activeCategories, setActiveCategories] = useState(
     CATEGORIES.map((c) => c.id).filter((id) => id !== "digital" && id !== "textile" && id !== "printmaking")
   );
+
+  // Coming from a Home page "Explore by Medium" card (e.g. /discover?category=paintings)
+  // narrows the sidebar down to just that one category. No matching/valid
+  // category param (or none at all) leaves the default selection above untouched.
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam && CATEGORIES.some((c) => c.id === categoryParam)) {
+      setActiveCategories([categoryParam]);
+    }
+  }, [searchParams]);
+
+  // Coming from the Navbar's search box (/discover?search=...) seeds this
+  // page's own search input/filter with that text.
+  useEffect(() => {
+    const searchParam = searchParams.get("search");
+    if (searchParam) {
+      setQuery(searchParam);
+    }
+  }, [searchParams]);
   const [price, setPrice] = useState([100, 9500]);
   const [mediums, setMediums] = useState(["Oil", "Stoneware"]);
   const [size, setSize] = useState("");

@@ -1,6 +1,18 @@
 import { useState } from 'react'
 import logo from '../assets/logo.png'
 
+/*
+  Footer background was #fff8f3 — almost identical to the white sections
+  right above it, so it visually "merged" into the page. Bumped it to
+  #f1e4d8 (the same warm cream already used for chips / the announcement
+  bar) so there's a clear tonal break where the footer starts, without
+  going back to a dark background (which is what killed the logo's
+  contrast before).
+
+  Responsive note: added a `sm:grid-cols-2` step so tablet widths (≈640–
+  1023px) get a 2-column layout instead of jumping straight from 1 column
+  to the full 4-column desktop grid.
+*/
 
 const COLUMNS = [
   {
@@ -34,11 +46,11 @@ const COLUMNS = [
 ]
 
 const SOCIALS = [
+    { label: 'terms', href: '/terms' },
+    { label: 'privacy', href: '/privacy' },
   { label: 'Instagram', href: 'https://instagram.com' },
   { label: 'Pinterest', href: 'https://pinterest.com' },
   { label: 'X', href: 'https://x.com' },
-  { label: 'Terms of Service', href: '/terms' },
-  { label: 'Privacy Policy', href: '/privacy' },
 ]
 
 export default function Footer() {
@@ -54,11 +66,11 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-[#e6ded8] bg-[#f1e4d8] font-sans text-[#625650]">
-      <div className="mx-auto max-w-[1450px] px-5 pb-10 pt-14 sm:px-8 md:pt-20 lg:px-[70px]">
-        <div className="grid grid-cols-1 gap-12 border-b border-[#e6ded8] pb-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
-          <div>
-            <img src={logo} alt="Athenura" className="h-11 w-auto" />
-            <p className="mt-4 max-w-xs text-[15px] leading-[1.65] text-[#5a4c44]">
+      <div className="mx-auto max-w-[1450px] px-5 pb-10 pt-12 sm:px-8 sm:pt-16 md:pt-20 lg:px-[70px]">
+        <div className="grid grid-cols-1 gap-10 border-b border-[#e6ded8] pb-12 sm:grid-cols-2 sm:gap-8 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-12">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <img src={logo} alt="Athenura" className="h-10 w-auto sm:h-11" />
+            <p className="mt-4 max-w-xs text-[14px] leading-[1.65] text-[#5a4c44] sm:text-[15px]">
               Original paintings, sculpture, and custom commissions from
               independent artists &mdash; verified for provenance and shipped
               with archival care.
@@ -71,7 +83,7 @@ export default function Footer() {
               >
                 Get new arrivals in your inbox
               </label>
-              <div className="mt-2 flex items-center gap-2 border-b border-[#d8c5b4] pb-2 focus-within:border-[#a65335]">
+              <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-2 border-b border-[#d8c5b4] pb-2 focus-within:border-[#a65335]">
                 <input
                   id="footer-email"
                   type="email"
@@ -79,7 +91,7 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@email.com"
-                  className="w-full bg-transparent text-[15px] text-[#29221e] placeholder:text-[#a8917f] focus:outline-none"
+                  className="min-w-0 flex-1 bg-transparent text-[14px] text-[#29221e] placeholder:text-[#a8917f] focus:outline-none sm:text-[15px]"
                 />
                 <button
                   type="submit"
@@ -96,7 +108,7 @@ export default function Footer() {
 
           {COLUMNS.map((col) => (
             <div key={col.heading}>
-              <h3 className="font-serif text-[18px] font-medium leading-none text-[#29221e]">
+              <h3 className="font-serif text-[17px] font-medium leading-none text-[#29221e] sm:text-[18px]">
                 {col.heading}
               </h3>
               <ul className="mt-4 space-y-3">
@@ -115,11 +127,11 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 pt-6 sm:flex-row">
+        <div className="flex flex-col items-center gap-4 pt-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <p className="text-[13px] text-[#7a6a5f]">
             &copy; {new Date().getFullYear()} Athenura. All rights reserved.
           </p>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
             {SOCIALS.map((s) => (
               <a
                 key={s.label}

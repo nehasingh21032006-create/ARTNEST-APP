@@ -1,85 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Filler,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
   Tooltip,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
+  ResponsiveContainer,
+} from "recharts";
+import { formatINRCompact, formatINR } from "../../Pages/Admin Dashboard/format";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Filler, Tooltip);
+const METRICS = [
+  { key: "revenue", label: "Revenue", isCurrency: true },
+  { key: "orders", label: "Orders", isCurrency: false },
+  { key: "artists", label: "Artists", isCurrency: false },
+];
 
-export default function RevenueChart({ labels, values }) {
-  const data = {
-    labels,
-    datasets: [
-      {
-        data: values,
-        borderColor: "#9F5639",
-        backgroundColor: (ctx) => {
-          const { chart } = ctx;
-          const { ctx: c, chartArea } = chart;
-          if (!chartArea) return "rgba(159,86,57,0.08)";
-          const gradient = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
-          gradient.addColorStop(0, "rgba(159,86,57,0.22)");
-          gradient.addColorStop(1, "rgba(159,86,57,0.02)");
-          return gradient;
-        },
-        borderWidth: 2.5,
-        pointRadius: 0,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "#9F5639",
-        pointHoverBorderColor: "#FEFEFB",
-        pointHoverBorderWidth: 2,
-        fill: true,
-        tension: 0.35,
-      },
-    ],
-  };
+function CustomTooltip({ active, payload, label, isCurrency }) {
+  if (!active || !payload?.length) return null;
+  const value = payload[0].value;
+  return (
+    <div className="bg-[var(--color-inverse-surface)] text-[var(--color-inverse-on-surface)] text-[12px] px-3 py-2 rounded-lg">
+      <p className="font-semibold">{label}</p>
+      <p>{isCurrency ? formatINR(value) : value.toLocaleString("en-IN")}</p>
+    </div>
+  );
+}
 
-  const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    interaction: { mode: "index", intersect: false },
-    plugins: {
-      tooltip: {
-        backgroundColor: "#362F26",
-        titleColor: "#FCEFE1",
-        bodyColor: "#FCEFE1",
-        titleFont: { family: "Plus Jakarta Sans", size: 12, weight: "600" },
-        bodyFont: { family: "Plus Jakarta Sans", size: 12 },
-        padding: 10,
-        cornerRadius: 8,
-        displayColors: false,
-        callbacks: {
-          label: (item) => `$${item.parsed.y.toLocaleString()}`,
-        },
-      },
-    },
-    scales: {
-      x: {
-        grid: { display: false },
-        border: { color: "#D9D0C7" },
-        ticks: { color: "#A28F7D", font: { family: "Plus Jakarta Sans", size: 12 } },
-      },
-      y: {
-        grid: { color: "#EFE9E1" },
-        border: { display: false },
-        ticks: {
-          color: "#A28F7D",
-          font: { family: "Plus Jakarta Sans", size: 12 },
-          callback: (v) => `$${v / 1000}k`,
-        },
-      },
-    },
-  };
+export default function RevenueChart({ data }) {
+  const [metric, setMetric] = useState("revenue");
+  const active = METRICS.find((m) => m.key === metric);
 
   return (
-    <div className="h-[260px]">
-      <Line data={data} options={options} />
+    <div>
+      <div className="flex items-center gap-1.5 mb-3">
+        {METRICS.map((m) => (
+          <button
+            key={m.key}
+            type="button"
+            onClick={() => setMetric(m.key)}
+            className={`text-[12px] font-medium px-3 py-1.5 rounded-full transition-colors ${
+              metric === m.key
+                ? "bg-[var(--color-primary)] text-white"
+                : "text-[var(--color-secondary)] bg-[var(--color-section)] hover:text-[var(--color-neutral)]"
+            }`}
+          >
+            {m.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="h-[260px] w-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+            <defs>
+              <linearGradient id="revenueFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#9F5639" stopOpacity={0.28} />
+                <stop offset="100%" stopColor="#9F5639" stopOpacity={0.02} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid vertical={false} stroke="#EFE9E1" />
+            <XAxis
+              dataKey="month"
+              tick={{ fill: "#A28F7D", fontSize: 12, fontFamily: "Plus Jakarta Sans" }}
+              axisLine={{ stroke: "#D9D0C7" }}
+              tickLine={false}
+            />
+            <YAxis
+              tick={{ fill: "#A28F7D", fontSize: 12, fontFamily: "Plus Jakarta Sans" }}
+              axisLine={false}
+              tickLine={false}
+              tickFormatter={(v) => (active.isCurrency ? formatINRCompact(v) : v)}
+              width={54}
+            />
+            <Tooltip content={<CustomTooltip isCurrency={active.isCurrency} />} />
+            <Area
+              type="monotone"
+              dataKey={metric}
+              stroke="#9F5639"
+              strokeWidth={2.5}
+              fill="url(#revenueFill)"
+              activeDot={{ r: 5, fill: "#9F5639", stroke: "#FEFEFB", strokeWidth: 2 }}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 }
