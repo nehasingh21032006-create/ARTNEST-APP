@@ -21,6 +21,13 @@ import CustomArt from "./om-pages/CustomArt";
 import MyOrders from "./om-pages/MyOrders";
 import Profile from "./Pages/Profile";
 import AboutUs from "./Pages/AboutUs";
+import FAQ from "./Pages/FAQ";
+import Sell from "./Pages/Sell";
+import Shipping from "./Pages/Shipping";
+import Authenticity from "./Pages/Authenticity";
+import Careers from "./Pages/Careers";
+import Contact from "./Pages/Contact";
+import Journal from "./Pages/Journal";
 import AdminLayout from "./Pages/Admin Dashboard/AdminLayout";
 import Overview from "./Pages/Admin Dashboard/Overview";
 import ArtistsData from "./Pages/Admin Dashboard/Artists";
@@ -59,6 +66,13 @@ const App = () => {
         <Route path="/discover" element={<Discover />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/sell" element={<Sell />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/authenticity" element={<Authenticity />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/journal" element={<Journal />} />
 
         <Route path="/sculptures" element={<Sculptures />} />
         <Route path="/artists" element={<Artists />} />

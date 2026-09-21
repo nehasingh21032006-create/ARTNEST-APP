@@ -1,19 +1,6 @@
 import { useState } from 'react'
 import logo from '../assets/logo.png'
 
-/*
-  Footer background was #fff8f3 — almost identical to the white sections
-  right above it, so it visually "merged" into the page. Bumped it to
-  #f1e4d8 (the same warm cream already used for chips / the announcement
-  bar) so there's a clear tonal break where the footer starts, without
-  going back to a dark background (which is what killed the logo's
-  contrast before).
-
-  Responsive note: added a `sm:grid-cols-2` step so tablet widths (≈640–
-  1023px) get a 2-column layout instead of jumping straight from 1 column
-  to the full 4-column desktop grid.
-*/
-
 const COLUMNS = [
   {
     heading: 'Explore',
