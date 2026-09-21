@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import ArtistReg from "./Components/auth/artistReg";
@@ -52,6 +53,7 @@ import ArtistReviews from "./Pages/Artist Dashboard/Reviews";
 import ArtistMessages from "./Pages/Artist Dashboard/Messages";
 import ArtistProfile from "./Pages/Artist Dashboard/Profile";
 
+
 const App = () => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
@@ -73,6 +75,7 @@ const App = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/journal" element={<Journal />} />
+
 
         <Route path="/sculptures" element={<Sculptures />} />
         <Route path="/artists" element={<Artists />} />

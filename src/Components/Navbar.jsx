@@ -104,11 +104,13 @@ const Navbar = () => {
               )}
             </div>
 
+
             {/* Wishlist */}
             <Link
               to="/wishlist"
               aria-label="Wishlist"
               className="relative border-none bg-transparent p-[3px] text-[#4d4541] hover:text-[#a65335] cursor-pointer"
+
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
                 <path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.8 4.8 0 0 1 8 4c1.5 0 3 .7 4 2 1-1.3 2.5-2 4-2a4.8 4.8 0 0 1 4.8 4.8Z" />

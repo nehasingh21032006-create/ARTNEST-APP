@@ -172,4 +172,6 @@ export default function SpatialHarmonySection() {
       </div>
     </section>
   );
+
 }
+
