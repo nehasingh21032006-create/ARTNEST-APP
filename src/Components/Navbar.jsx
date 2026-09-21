@@ -37,14 +37,14 @@ const Navbar = () => {
           </a>
 
           <a
-            href="#"
+            href="/artists"
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             Artists
           </a>
 
           <a
-            href="#"
+            href="/sculptures"
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             Sculptures

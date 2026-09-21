@@ -788,7 +788,124 @@ const CollectionsHero = () => {
 
 
       <CuratedEnsembles />
+
       <SpatialHarmonySection/>
+
+      <section className="bg-[#FAF4ED] min-h-screen py-16 px-4 sm:px-6 lg:px-12 flex items-center justify-center font-sans">
+      {/* Outer Card Container */}
+      <div className="bg-[#F2E3D5] rounded-2xl p-8 sm:p-12 lg:p-16 max-w-6xl w-full shadow-sm relative overflow-hidden">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          {/* Left Column: Text & CTAs */}
+          <div className="lg:col-span-7 flex flex-col items-start">
+            
+            {/* Top Pill Badge */}
+            <div className="inline-flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider text-neutral-700 uppercase mb-6 shadow-xs border border-white/50">
+              <svg className="w-3.5 h-3.5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <span>Complimentary Advisory for Private & Hospitality Spaces</span>
+            </div>
+
+            {/* Main Title */}
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif leading-tight text-neutral-900 mb-5 font-normal">
+              Need a Tailored Ensemble for Your Residence or Project?
+            </h2>
+
+            {/* Subtitle / Description */}
+            <p className="text-neutral-600 text-sm sm:text-base leading-relaxed mb-8 max-w-2xl">
+              Our team of independent curators and interior art consultants creates bespoke collections matched to your floor plans, lighting conditions, and aesthetic palette. We manage shipping, bespoke framing, and white-glove installation worldwide.
+            </p>
+
+            {/* Feature Badges */}
+            <div className="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs text-neutral-700 font-medium mb-10">
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+                <span>Custom Palette Matching</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+                <span>3D Architectural Previews</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Signed Provenance Papers</span>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+              <button className="bg-[#7C3F28] hover:bg-[#66321F] text-white text-xs font-medium px-5 py-3.5 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-sm">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Book a Curatorial Consultation
+              </button>
+
+              <button className="bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-200 text-xs font-medium px-5 py-3.5 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-sm">
+                <svg className="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Interior Lookbook PDF (28MB)
+              </button>
+            </div>
+
+          </div>
+
+          {/* Right Column: Floating Curatorial Support Card */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="bg-white rounded-xl p-5 shadow-sm border border-neutral-100 max-w-sm w-full">
+              
+              {/* Card Header */}
+              <div className="flex items-center gap-3 mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120"
+                  alt="Curator"
+                  className="w-11 h-11 rounded-lg object-cover"
+                />
+                <div>
+                  <h3 className="text-xs font-semibold text-neutral-900 leading-snug">
+                    Curatorial Support
+                  </h3>
+                  <p className="text-[11px] text-neutral-400">
+                    Response within 24 business hours
+                  </p>
+                </div>
+              </div>
+
+              {/* Quote Body */}
+              <p className="text-neutral-600 italic text-xs leading-relaxed mb-6 font-serif">
+                "We collaborate with architects and interior designers across 40 countries to assemble harmonious art programs for private villas, boutique hotels, and urban lofts."
+              </p>
+
+              {/* Card Footer Details */}
+              <div className="flex justify-between items-center text-[11px] pt-3 border-t border-neutral-100">
+                <span className="text-neutral-500 font-medium">
+                  Average Consultation: <span className="text-neutral-800">30 Mins</span>
+                </span>
+                <span className="text-neutral-800 font-medium">
+                  Complimentary
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    
+
     </div>
   );
 };

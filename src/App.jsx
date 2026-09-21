@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import { Routes } from 'react-router-dom'
 import Footer from "./Components/Footer";
 import CollectionsHero from "./pages/Curratedcollection";
+import Artist from "./pages/Artist";
+import Sculptures from "./pages/Sculptures";
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collections" element={<CollectionsHero />} />
+        <Route path="/artists" element={<Artist />} />
+        <Route path="/sculptures" element={<Sculptures />} />
       </Routes>
       <Footer />
     </div>
