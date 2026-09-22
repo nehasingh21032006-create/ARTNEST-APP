@@ -1,7 +1,14 @@
 import React from "react";
 import { MdOutlineVerified } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleclick = () =>{
+    navigate("/profile");
+  }
+
   return (
     <>
       {/* ================= NAVBAR ================= */}
@@ -65,7 +72,7 @@ const Navbar = () => {
           </a>
 
           <a
-            href="#"
+            href="/about"
             className="text-[13px] text-[#625650] hover:text-[#a85537] whitespace-nowrap"
           >
             About
@@ -143,9 +150,9 @@ const Navbar = () => {
 
 
           {/* Profile */}
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#d6c4ae] to-[#b99a78] flex items-center justify-center text-white text-[9px] font-semibold">
+          <a href="/profile" className="w-8 h-8 rounded-full bg-gradient-to-br from-[#d6c4ae] to-[#b99a78] flex items-center justify-center text-white text-[9px] font-semibold">
             AN
-          </div>
+          </a>
 
         </div>
       </nav>
